@@ -6,18 +6,16 @@
 
 %define _exclude_files_from_autoreq ^%{py_platsitedir}/gi/_gobject/__init__.py 
 
-
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.0.2
-Release:	%mkrel 1
+Version:	3.0.4
+Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{oname}/%{url_ver}/%{oname}-%{version}.tar.xz
 Patch0:		pygobject-2.90.2-link.patch
 
-BuildRequires:	automake
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.10.2
@@ -34,7 +32,7 @@ Summary:	Python bindings for GObject Introspection
 Group:		Development/Python
 Provides:	python-gobject-introspection = %{version}-%{release}
 Provides:	%{name} = %{version}-%{release}
-Conflicts:	python-gobject < 2.28.6-4
+Conflicts:	python-gobject < 2.28.6-3
 
 %description -n python-gi
 The %{name} package provides a convenient wrapper for the GObject library
@@ -47,7 +45,7 @@ Summary:	Python-gi bindings for Cairo
 Group:		Development/Python
 Requires:	python-gi = %{version}-%{release}
 Requires:	python-cairo >= 1.2.0
-Obsoletes:	python-gobject-cairo < 2.28.6-4
+Obsoletes:	python-gobject-cairo < 2.28.6-3
 Provides:	python-gobject-cairo = %{version}-%{release}
 
 %description -n python-gi-cairo
