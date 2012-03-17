@@ -24,8 +24,8 @@ BuildRequires:	pkgconfig(pycairo) >= 1.2.0
 BuildRequires:	pkgconfig(python) >= 2.5.2
 
 %description
-The %{name} package provides a convenient wrapper for the GObject library
-for use in Python programs.
+The %{name} package provides a convenient wrapper for the GObject 
+library for use in Python programs.
 
 %package -n python-gi
 Summary:	Python bindings for GObject Introspection
@@ -35,9 +35,6 @@ Provides:	%{name} = %{version}-%{release}
 Conflicts:	python-gobject < 2.28.6-3
 
 %description -n python-gi
-The %{name} package provides a convenient wrapper for the GObject library
-for use in Python programs.
-
 This package contains the Python GObject Introspection bindings.
 
 %package -n python-gi-cairo
@@ -49,9 +46,6 @@ Obsoletes:	python-gobject-cairo < 2.28.6-3
 Provides:	python-gobject-cairo = %{version}-%{release}
 
 %description -n python-gi-cairo
-The %{name} package provides a convenient wrapper for the GObject library
-for use in Python programs.
-
 This package contains the Python-gi Cairo bindings.
 
 %package -n %{libname}
