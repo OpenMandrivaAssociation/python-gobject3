@@ -2,13 +2,13 @@
 
 %define api 2.0
 %define major 0
-%define libname %mklibname pyglib-gi %api %major
+%define libname %mklibname pyglib-gi %{api} %major
 
 %define _exclude_files_from_autoreq ^%{py_platsitedir}/gi/_gobject/__init__.py 
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.0.4
+Version:	3.2.0
 Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
