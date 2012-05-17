@@ -13,7 +13,7 @@ Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{oname}/%{url_ver}/%{oname}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{oname}/%{oname}-%{version}.tar.xz
 Patch0:		pygobject-2.90.2-link.patch
 
 BuildRequires:	gtk-doc
@@ -74,7 +74,6 @@ header, pkg-config file.
 %make LIBS="-lpython%{py_ver}"
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 find %{buildroot} -name *.la | xargs rm
