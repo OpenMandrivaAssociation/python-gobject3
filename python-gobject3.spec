@@ -2,19 +2,22 @@
 
 %define api 2.0
 %define major 0
-%define libname %mklibname pyglib-gi %{api} %major
+%define libname %mklibname pyglib-gi %{api} %{major}
 
-%define _exclude_files_from_autoreq ^%{py_platsitedir}/gi/_gobject/__init__.py 
+%if %{_use_internal_dependency_generator}
+%define __noautoprovfiles %{py_platsitedir}/gi/_gobject/__init__.py
+%else
+%define _exclude_files_from_autoreq ^%{py_platsitedir}/gi/_gobject/__init__.py
+%endif
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.2.2
-Release:	1
+Version:	3.4.0
+Release:	2
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{oname}/%{oname}-%{version}.tar.xz
-Patch0:		pygobject-2.90.2-link.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{oname}/3.4/%{oname}-%{version}.tar.xz
 
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
@@ -41,6 +44,7 @@ This package contains the Python GObject Introspection bindings.
 Summary:	Python-gi bindings for Cairo
 Group:		Development/Python
 Requires:	python-gi = %{version}-%{release}
+Requires:	typelib(PangoCairo)
 Requires:	python-cairo >= 1.2.0
 Obsoletes:	python-gobject-cairo < 2.28.6-3
 Provides:	python-gobject-cairo = %{version}-%{release}
@@ -76,8 +80,6 @@ header, pkg-config file.
 %install
 %makeinstall_std
 
-find %{buildroot} -name *.la | xargs rm
-
 # dsextra stuff is for windows installs so remove it
 rm -fr %{buildroot}%{python_sitearch}/gtk-2.0
 
@@ -101,4 +103,29 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
+
+%changelog
+* Tue Oct  2 2012 Arkady L. Shane <ashejn@rosalab.ru> 3.4.0-1
+- 3.4.0
+
+* Thu May 17 2012 Matthew Dawkins <mattydaw@mandriva.org> 3.2.2-1
++ Revision: 799303
+- update to new version 3.2.2
+
+* Sun May 13 2012 Alexander Khrukin <akhrukin@mandriva.org> 3.2.1-1
++ Revision: 798544
+- version update 3.2.1
+
+* Sun Apr 29 2012 Matthew Dawkins <mattydaw@mandriva.org> 3.2.0-1
++ Revision: 794486
+- new version 3.2.0
+
+* Sat Mar 17 2012 Matthew Dawkins <mattydaw@mandriva.org> 3.0.4-1
++ Revision: 785442
+- new version 3.0.4
+- corrected Conflicts for older pythob-gobject
+
+* Mon Nov 21 2011 Matthew Dawkins <mattydaw@mandriva.org> 3.0.2-1
++ Revision: 732233
+- imported package python-gobject3
 
