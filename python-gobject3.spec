@@ -123,6 +123,7 @@ cp -r python2 python3
 
 pushd python3
 sed -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure*
+sed -i -e 's/AM_PROG_CC_STDC/AC_PROG_CC/g' configure*
 autoreconf -fi
 %configure2_5x PYTHON=%__python3
 %make  LDFLAGS="`python3-config --ldflags`"
@@ -130,6 +131,7 @@ popd
 
 pushd python2
 sed -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure*
+sed -i -e 's/AM_PROG_CC_STDC/AC_PROG_CC/g' configure*
 autoreconf -fi
 %configure2_5x
 %make LIBS="-lpython%{py_ver}"
