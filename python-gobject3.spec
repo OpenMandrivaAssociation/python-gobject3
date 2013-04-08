@@ -14,7 +14,7 @@
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.4.2
-Release:	1
+Release:	2
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -122,12 +122,15 @@ cp -r python2 python3
 %build
 
 pushd python3
-echo "%__python3"
+sed -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure*
+autoreconf -fi
 %configure2_5x PYTHON=%__python3
 %make  LDFLAGS="`python3-config --ldflags`"
 popd
 
 pushd python2
+sed -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure*
+autoreconf -fi
 %configure2_5x
 %make LIBS="-lpython%{py_ver}"
 popd
