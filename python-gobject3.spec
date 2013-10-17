@@ -1,8 +1,8 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define oname pygobject
-%define api	2.0
-%define major	0
+%define api 2.0
+%define major 0
 %define libname %mklibname pyglib-gi %{api} %{major}
 %define libname3 %mklibname py3glib-gi %{api} %{major}
 
@@ -14,8 +14,8 @@
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.4.2
-Release:	2
+Version:	3.10.1
+Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
