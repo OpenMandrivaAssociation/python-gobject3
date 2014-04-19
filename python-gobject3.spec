@@ -156,18 +156,20 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 %files -n python-gi
 %doc python2/README python2/NEWS python2/AUTHORS python2/ChangeLog
 %{py_platsitedir}/gi
+%{py_platsitedir}/pygtkcompat
 %exclude %{py_platsitedir}/gi/_gi_cairo.so
 
 %files -n python3-gi
 %doc python3/README python3/NEWS python3/AUTHORS python3/ChangeLog
 %{py3_platsitedir}/gi
-%exclude %{py3_platsitedir}/gi/_gi_cairo.so
+%{py3_platsitedir}/pygtkcompat
+%exclude %{py3_platsitedir}/gi/_gi_cairo.*.so
 
 %files -n python-gi-cairo
 %{py_platsitedir}/gi/_gi_cairo.so
 
 %files -n python3-gi-cairo
-%{py3_platsitedir}/gi/_gi_cairo.so
+%{py3_platsitedir}/gi/_gi_cairo.*.so
 
 %files -n %{libname}
 %{_libdir}/libpyglib-gi-%{api}-python.so.%{major}*
