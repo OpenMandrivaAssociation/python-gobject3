@@ -1,8 +1,8 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define oname pygobject
-%define api	2.0
-%define major	0
+%define api 2.0
+%define major 0
 %define libname %mklibname pyglib-gi %{api} %{major}
 %define libname3 %mklibname py3glib-gi %{api} %{major}
 
@@ -14,8 +14,8 @@
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.4.2
-Release:	3
+Version:	3.10.1
+Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig(pycairo) >= 1.2.0
 BuildRequires:	pkgconfig(python) >= 2.5.2
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(py3cairo)
+BuildRequires:	gnome-common
 
 %description
 The %{name} package provides a convenient wrapper for the GObject 
@@ -129,7 +130,7 @@ pushd python2
 sed -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g' configure*
 sed -i -e 's/AM_PROG_CC_STDC/AC_PROG_CC/g' configure*
 autoreconf -fi
-%configure2_5x
+%configure2_5x PYTHON=%__python
 %make LIBS="-lpython%{py_ver}"
 popd
 
