@@ -10,12 +10,12 @@
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.12.2
-Release:	2
+Version:	3.13.3
+Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{oname}/%{url_ver}/%{oname}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/pygobject/3.13/pygobject-%{version}.tar.xz
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.10.2
@@ -69,10 +69,10 @@ header, pkg-config file.
 
 %install
 PYTHON=%__python3 %makeinstall_std
-rm -rf %{buildroot}%{python3_sitearch}/pygobject-*
+rm -rf %{buildroot}%{py3_platsitedir}/pygobject-*
 
 # dsextra stuff is for windows installs so remove it
-rm -fr %{buildroot}%{python_sitearch}/gtk-2.0
+rm -fr %{buildroot}%{py_platsitedir}/gtk-2.0
 
 # docs are out of date and are being reworked upstream
 # so remove them
@@ -91,4 +91,3 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 %files devel
 %{_includedir}/*
 %{_libdir}/pkgconfig/*.pc
-
