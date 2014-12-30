@@ -15,7 +15,7 @@
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.14.0
-Release:	2
+Release:	3
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -40,6 +40,7 @@ Group:		Development/Python
 Provides:	python-gobject-introspection = %{version}-%{release}
 Provides:	%{name} = %{version}-%{release}
 Conflicts:	python-gobject < 2.28.6-3
+%rename python3-gi
 
 %description -n python-gi
 This package contains the Python GObject Introspection bindings.
