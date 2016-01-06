@@ -4,5 +4,6 @@ removed_sources:
   pygobject-3.13.3.tar.xz: 294c85342a7e503e013a43ddff89c9db3fd188b9
   pygobject-3.13.92.tar.xz: 8d88cf2352740befefb6bc73a6530c8e7b549ac1
   pygobject-3.14.0.tar.xz: 638302e7b97a7a8f7bc1f9014f2765cf22dd197e
-sources:
   pygobject-3.16.1.tar.xz: 398dee18cc905c0d54b741163d66ad3fbeba37ed
+sources:
+  pygobject-3.18.2.tar.xz: 6a30628e0a31848ae81d47a260b2dc87fa830e40

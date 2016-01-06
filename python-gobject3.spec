@@ -1,3 +1,4 @@
+%define _disable_rebuild_configure 1
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define oname pygobject
@@ -14,12 +15,12 @@
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.16.1
-Release:	2
+Version:	3.18.2
+Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
-Source0:	https://download.gnome.org/sources/pygobject/3.14/pygobject-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/pygobject/%url_ver/pygobject-%{version}.tar.xz
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.10.2
