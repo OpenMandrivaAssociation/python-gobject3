@@ -15,7 +15,7 @@
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.24.1
+Version:	3.25.1
 Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
@@ -32,7 +32,7 @@ BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	gnome-common
 
 %description
-The %{name} package provides a convenient wrapper for the GObject 
+The %{name} package provides a convenient wrapper for the GObject
 library for use in Python programs.
 
 %package -n python-gi
@@ -126,14 +126,12 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 %{py_platsitedir}/gi
 %{py_platsitedir}/pygtkcompat
 %exclude %{py_platsitedir}/gi/_gi_cairo.*.so
-%{py_platsitedir}/pygobject-*-py%{py3_ver}-*.egg-info
 
 %files -n python2-gi
 %doc python2/README python2/NEWS python2/AUTHORS
 %{py2_platsitedir}/gi
 %{py2_platsitedir}/pygtkcompat
 %exclude %{py2_platsitedir}/gi/_gi_cairo.so
-%{py2_platsitedir}/pygobject-*-py%{py2_ver}-*.egg-info
 
 %files -n python-gi-cairo
 %{py_platsitedir}/gi/_gi_cairo.*.so
