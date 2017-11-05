@@ -15,8 +15,8 @@
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.25.1
-Release:	2
+Version:	3.26.1
+Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -126,12 +126,14 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 %{py_platsitedir}/gi
 %{py_platsitedir}/pygtkcompat
 %exclude %{py_platsitedir}/gi/_gi_cairo.*.so
+%{py_platsitedir}/pygobject-*-py3.*.egg-info
 
 %files -n python2-gi
 %doc python2/README python2/NEWS python2/AUTHORS
 %{py2_platsitedir}/gi
 %{py2_platsitedir}/pygtkcompat
 %exclude %{py2_platsitedir}/gi/_gi_cairo.so
+%{py2_platsitedir}/pygobject-*-py2.*.egg-info
 
 %files -n python-gi-cairo
 %{py_platsitedir}/gi/_gi_cairo.*.so
