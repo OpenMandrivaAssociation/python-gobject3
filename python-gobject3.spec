@@ -29,7 +29,6 @@ BuildRequires:	pkgconfig(pycairo) >= 1.2.0
 BuildRequires:	pkgconfig(python) >= 2.5.2
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(py3cairo)
-BuildRequires:	gnome-common
 
 %description
 The %{name} package provides a convenient wrapper for the GObject
