@@ -88,30 +88,37 @@ This contains the python-gobject development files, including C
 header, pkg-config file.
 
 %prep
-%setup -qn %{oname}-%{version} -c
-mv %{oname}-%{version} python2
-cp -r python2 python3
+%setup -q -c -T
+
+# Python 2
+tar xf %{SOURCE0}
+mv pygobject-%{version} python2
+
+# Python 3
+cp -ar python2 python3
 
 %build
-pushd python3
-%meson -Dpython=%{__python}
-%meson_build
-popd
-
+# Python 2
 pushd python2
 %meson -Dpython=%{__python2}
 %meson_build
 popd
 
-%install
+# Python 3
 pushd python3
-PYTHON=%__python %meson_install
-rm -rf %{buildroot}%{py3_sitearch}/pygobject-*
+%meson -Dpython=%{__python3}
+%meson_build
 popd
 
+%install
+# Python 2
 pushd python2
-PYTHON=%__python2 %meson_install
-rm -rf %{buildroot}%{py2_sitearch}/pygobject-*
+%meson_install
+popd
+
+# Python 3
+pushd python3
+%meson_install
 popd
 
 # dsextra stuff is for windows installs so remove it
