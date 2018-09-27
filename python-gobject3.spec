@@ -1,3 +1,4 @@
+%define _disable_ld_no_undefined 1
 %define _disable_rebuild_configure 1
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
@@ -7,15 +8,13 @@
 %define libname %mklibname pyglib-gi %{api} %{major}
 %define libname2 %mklibname py2glib-gi %{api} %{major}
 
-%if %{_use_internal_dependency_generator}
-%define __noautoprovfiles %{py_platsitedir}/gi/_gobject/__init__.py
-%else
-%define _exclude_files_from_autoreq ^%{py_platsitedir}/gi/_gobject/__init__.py
-%endif
+%global __provides_exclude_from ^(%{python2_sitearch}|%{python3_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
+%global __requires_exclude_from ^(%{python2_sitearch}|%{python3_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
+%global __requires_exclude typelib\\(%%namespaces
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.28.2
+Version:	3.30.1
 Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
@@ -29,6 +28,7 @@ BuildRequires:	pkgconfig(pycairo) >= 1.2.0
 BuildRequires:	pkgconfig(python) >= 2.5.2
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(py3cairo)
+BuildRequires:	meson
 
 %description
 The %{name} package provides a convenient wrapper for the GObject
@@ -40,6 +40,7 @@ Group:		Development/Python
 Provides:	python-gobject-introspection = %{version}-%{release}
 Provides:	%{name} = %{version}-%{release}
 Conflicts:	python-gobject < 2.28.6-3
+Requires:	gobject-introspection
 %rename python3-gi
 
 %description -n python-gi
@@ -80,6 +81,7 @@ This package contains the Python-gi Cairo bindings.
 %package devel
 Group:		Development/C
 Summary:	Python-gobject development files
+Requires:	pkgconfig(gobject-introspection-1.0)
 
 %description devel
 This contains the python-gobject development files, including C
@@ -92,23 +94,23 @@ cp -r python2 python3
 
 %build
 pushd python3
-%configure PYTHON=%__python3
-%make LDFLAGS="`python3-config --ldflags`"
+%meson -Dpython=%{__python}
+%meson_build LDFLAGS="$(python3-config --ldflags)"
 popd
 
 pushd python2
-%configure PYTHON=%__python2
-%make LDFLAGS="`python2-config --ldflags`"
+%meson -Dpython=%{__python2}
+%meson_build LDFLAGS="$(python2-config --ldflags)"
 popd
 
 %install
 pushd python3
-PYTHON=%__python3 %makeinstall_std
+PYTHON=%__python %meson_install
 rm -rf %{buildroot}%{py3_sitearch}/pygobject-*
 popd
 
 pushd python2
-PYTHON=%__python2 %makeinstall_std
+PYTHON=%__python2 %meson_install
 rm -rf %{buildroot}%{py2_sitearch}/pygobject-*
 popd
 
