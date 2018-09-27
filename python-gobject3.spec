@@ -95,12 +95,12 @@ cp -r python2 python3
 %build
 pushd python3
 %meson -Dpython=%{__python}
-%meson_build LDFLAGS="$(python3-config --ldflags)"
+%meson_build
 popd
 
 pushd python2
 %meson -Dpython=%{__python2}
-%meson_build LDFLAGS="$(python2-config --ldflags)"
+%meson_build
 popd
 
 %install
