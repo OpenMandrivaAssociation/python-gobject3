@@ -25,8 +25,8 @@ BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.10.2
 BuildRequires:	pkgconfig(libffi) >= 3.0
 BuildRequires:	pkgconfig(pycairo) >= 1.2.0
-BuildRequires:	pkgconfig(python) >= 2.5.2
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python2) >= 2.5.2
+BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	meson
 
