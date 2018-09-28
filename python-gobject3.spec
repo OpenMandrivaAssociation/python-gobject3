@@ -139,7 +139,7 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 %{py2_platsitedir}/gi
 %{py2_platsitedir}/pygtkcompat
 %exclude %{py2_platsitedir}/gi/_gi_cairo.so
-%{py2_platsitedir}/*.egg-info
+%{python2_sitelib}/*.egg-info
 
 %files -n python-gi-cairo
 %{py_platsitedir}/gi/_gi_cairo.*.so
