@@ -10,12 +10,12 @@
 
 %global __provides_exclude_from ^(%{python2_sitearch}|%{python3_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
 %global __requires_exclude_from ^(%{python2_sitearch}|%{python3_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
-%global __requires_exclude typelib\\(%%namespaces
+%global __requires_exclude typelib\\(%%namespaces\\)
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.32.1
-Release:	1
+Release:	2
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
