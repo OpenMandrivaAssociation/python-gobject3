@@ -15,7 +15,7 @@
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.32.2
+Version:	3.34.0
 Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
