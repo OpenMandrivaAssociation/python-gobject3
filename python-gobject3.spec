@@ -66,9 +66,10 @@ This contains the python-gobject development files, including C
 header, pkg-config file.
 
 %prep
-%setup -q -c -T
+%setup -qn %{oname}-%{version}
+
 %build
-%meson
+%meson -Dpython=%{__python3}
 %meson_build
 
 %install
