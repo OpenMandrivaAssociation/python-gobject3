@@ -68,7 +68,7 @@ header, pkg-config file.
 %prep
 %setup -q -c -T
 %build
-%meson -Dpython=%{__python3}
+%meson
 %meson_build
 
 %install
