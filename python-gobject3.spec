@@ -84,10 +84,11 @@ rm -rf %{buildroot}%{_datadir}/gtk-doc
 rm -rf %{buildroot}%{_datadir}/pygobject
 
 %files -n python-gi
-%{py_platsitedir}/gi
-%{py_platsitedir}/pygtkcompat
-%exclude %{py_platsitedir}/gi/_gi_cairo.*.so
-%{py_platsitedir}/*.egg-info
+%exclude %{python_sitearch}/gi/_gi_cairo.*.so
+%{python_sitelib}/gi/
+%{python_sitearch}/gi/
+%{python_sitelib}/pygtkcompat/
+%{python_sitearch}/PyGObject-%{version}.egg-info
 
 %files -n python-gi-cairo
 %{py_platsitedir}/gi/_gi_cairo.*.so
