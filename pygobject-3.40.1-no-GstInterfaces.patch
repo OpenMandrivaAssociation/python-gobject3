@@ -1,0 +1,14 @@
+diff -up pygobject-3.40.1/pygtkcompat/pygtkcompat.py.omv~ pygobject-3.40.1/pygtkcompat/pygtkcompat.py
+--- pygobject-3.40.1/pygtkcompat/pygtkcompat.py.omv~	2021-04-28 21:49:40.031012099 +0200
++++ pygobject-3.40.1/pygtkcompat/pygtkcompat.py	2021-04-28 21:49:46.245103337 +0200
+@@ -582,10 +582,6 @@ def enable_gst():
+     _patch(Gst, "get_pygst_version", lambda: (0, 10, 19))
+     _patch(Gst, "get_gst_version", lambda: (0, 10, 40))
+ 
+-    from gi.repository import GstInterfaces
+-    _patch_module('gst.interfaces', GstInterfaces)
+-    _install_enums(GstInterfaces)
+-
+     from gi.repository import GstAudio
+     _patch_module('gst.audio', GstAudio)
+     _install_enums(GstAudio)
