@@ -9,6 +9,7 @@ diff -up pygobject-3.40.1/pygtkcompat/pygtkcompat.py.1~ pygobject-3.40.1/pygtkco
 +    gi.require_version('Vte', '2.91')
      from gi.repository import Vte
      _patch_module('vte', Vte)
+     
 @@ -570,22 +570,6 @@ def enable_gst():
      if _check_enabled("gst"):
          return
