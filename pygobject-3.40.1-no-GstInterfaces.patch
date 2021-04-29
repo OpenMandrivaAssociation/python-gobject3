@@ -1,6 +1,14 @@
 diff -up pygobject-3.40.1/pygtkcompat/pygtkcompat.py.1~ pygobject-3.40.1/pygtkcompat/pygtkcompat.py
 --- pygobject-3.40.1/pygtkcompat/pygtkcompat.py.1~	2020-05-06 18:48:34.879111800 +0200
 +++ pygobject-3.40.1/pygtkcompat/pygtkcompat.py	2021-04-28 22:16:49.214935016 +0200
+@@ -530,7 +530,7 @@
+     if _check_enabled("vte"):
+         return
+ 
+-    gi.require_version('Vte', '0.0')
++    gi.require_version('Vte', '2.91')
+     from gi.repository import Vte
+     _patch_module('vte', Vte)
 @@ -570,22 +570,6 @@ def enable_gst():
      if _check_enabled("gst"):
          return
