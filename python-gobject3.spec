@@ -8,15 +8,14 @@
 %define libname %mklibname pyglib-gi %{api} %{major}
 %define libname2 %mklibname py2glib-gi %{api} %{major}
 
-%global __provides_exclude_from ^(%{python3_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
-%global __requires_exclude_from ^(%{python3_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
-# typelib(GLib) typelib(GObject) typelib(GdkX11) typelib(Gio) typelib(Gtk) typelib(cairo)
-%global __requires_exclude typelib\\(%%namespaces\\)|typelib\\(cairo\\)|typelib\\(Gtk\\)|typelib\\(GdkX11\\)
+%global __provides_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
+%global __requires_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
+%global __requires_exclude typelib\\(%%namespaces
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.40.1
-Release:	3
+Release:	4
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -31,6 +30,10 @@ BuildRequires:	pkgconfig(libffi) >= 3.0
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	meson
+Requires:	typelib(PangoCairo)
+Requires:	python-cairo >= 1.10.0
+%rename python-gi-cairo
+%rename python-gobject-cairo
 
 %description
 The %{name} package provides a convenient wrapper for the GObject
@@ -39,30 +42,21 @@ library for use in Python programs.
 %package -n python-gi
 Summary:	Python bindings for GObject Introspection
 Group:		Development/Python
-Provides:	python-gobject-introspection = %{version}-%{release}
-Provides:	%{name} = %{version}-%{release}
+Provides:	python-gobject-introspection = %{EVRD}
 Conflicts:	python-gobject < 2.28.6-3
 Requires:	gobject-introspection
+Provides:	%{name}-base = %{EVRD}
 %rename python3-gi
 
 %description -n python-gi
-This package contains the Python GObject Introspection bindings.
-
-%package -n python-gi-cairo
-Summary:	Python-gi bindings for Cairo
-Group:		Development/Python
-Requires:	python-gi = %{version}-%{release}
-Requires:	typelib(PangoCairo)
-Requires:	python-cairo >= 1.10.0
-Provides:	python-gobject-cairo = %{version}-%{release}
-
-%description -n python-gi-cairo
-This package contains the Python-gi Cairo bindings.
+This package contains the Python GObject Introspection bindings,
+without non-cairo bits.
 
 %package devel
 Group:		Development/C
 Summary:	Python-gobject development files
 Requires:	pkgconfig(gobject-introspection-1.0)
+Requires:	%{name} = %{EVRD}
 
 %description devel
 This contains the python-gobject development files, including C
@@ -86,15 +80,40 @@ rm -fr %{buildroot}%{py_platsitedir}/gtk-2.0
 rm -rf %{buildroot}%{_datadir}/gtk-doc
 rm -rf %{buildroot}%{_datadir}/pygobject
 
+%files
+%{python_sitearch}/gi/_gi_cairo*.so
+%{python_sitearch}/gi/_gtktemplate.py
+%{python_sitearch}/gi/pygtkcompat.py
+%{python_sitelib}/gi/overrides/Gdk.*
+%{python_sitelib}/gi/overrides/GdkPixbuf.py
+%{python_sitelib}/gi/overrides/Gtk.*
+%{python_sitelib}/gi/overrides/keysyms.*
+%{python_sitelib}/gi/overrides/Pango.*
+%{python_sitelib}/gi/overrides/__pycache__/Gdk*
+%{python_sitelib}/gi/overrides/__pycache__/Gtk.*
+%{python_sitelib}/gi/overrides/__pycache__/keysyms.*
+%{python_sitelib}/gi/overrides/__pycache__/Pango.*
+%{python_sitelib}/pygtkcompat/
+%{python_sitearch}/gi/__pycache__/pygtkcompat.*
+
 %files -n python-gi
-%exclude %{python_sitearch}/gi/_gi_cairo.*.so
 %{python_sitelib}/gi/
 %{python_sitearch}/gi/
-%{python_sitelib}/pygtkcompat/
 %{python_sitearch}/PyGObject-%{version}.egg-info
-
-%files -n python-gi-cairo
-%{py_platsitedir}/gi/_gi_cairo.*.so
+%exclude %{python_sitearch}/gi/pygtkcompat.py
+%exclude %{python_sitearch}/gi/_gi_cairo*.so
+%exclude %{python_sitearch}/gi/__pycache__/pygtkcompat.*
+%exclude %{python_sitearch}/gi/_gtktemplate.py
+%exclude %{python_sitelib}/gi/overrides/Gdk.*
+%exclude %{python_sitelib}/gi/overrides/GdkPixbuf.py
+%exclude %{python_sitelib}/gi/overrides/Gtk.*
+%exclude %{python_sitelib}/gi/overrides/keysyms.*
+%exclude %{python_sitelib}/gi/overrides/Pango.*
+%exclude %{python_sitelib}/pygtkcompat/
+%exclude %{python_sitelib}/gi/overrides/__pycache__/Gdk*
+%exclude %{python_sitelib}/gi/overrides/__pycache__/Gtk.*
+%exclude %{python_sitelib}/gi/overrides/__pycache__/keysyms.*
+%exclude %{python_sitelib}/gi/overrides/__pycache__/Pango.*
 
 %files devel
 %{_includedir}/*
