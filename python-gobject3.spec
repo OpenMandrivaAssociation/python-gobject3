@@ -15,7 +15,7 @@
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.42.0
-Release:	1
+Release:	2
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -89,11 +89,11 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 %{python_sitelib}/gi/overrides/Gtk.*
 %{python_sitelib}/gi/overrides/keysyms.*
 %{python_sitelib}/gi/overrides/Pango.*
-%{python_sitelib}/gi/overrides/__pycache__/Gdk*
-%{python_sitelib}/gi/overrides/__pycache__/Gtk.*
-%{python_sitelib}/gi/overrides/__pycache__/keysyms.*
-%{python_sitelib}/gi/overrides/__pycache__/Pango.*
-%{python_sitelib}/pygtkcompat/
+#{python_sitelib}/gi/overrides/__pycache__/Gdk*
+#{python_sitelib}/gi/overrides/__pycache__/Gtk.*
+#{python_sitelib}/gi/overrides/__pycache__/keysyms.*
+#{python_sitelib}/gi/overrides/__pycache__/Pango.*
+#{python_sitelib}/pygtkcompat/
 %{python_sitearch}/gi/__pycache__/pygtkcompat.*
 
 %files -n python-gi
