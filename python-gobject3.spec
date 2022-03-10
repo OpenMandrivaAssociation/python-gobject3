@@ -94,7 +94,7 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 #{python_sitelib}/gi/overrides/__pycache__/keysyms.*
 #{python_sitelib}/gi/overrides/__pycache__/Pango.*
 #{python_sitelib}/pygtkcompat/
-%{python_sitearch}/gi/__pycache__/pygtkcompat.*
+#{python_sitearch}/gi/__pycache__/pygtkcompat.*
 
 %files -n python-gi
 %{python_sitelib}/gi/
