@@ -15,14 +15,14 @@
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.42.2
-Release:	2
+Release:	3
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
 Source0:	https://download.gnome.org/sources/pygobject/%url_ver/pygobject-%{version}.tar.xz
 # (bero) FIXME is this the right thing to do? GstInterfaces looks to me
 # like it's obsolete crap from gstreamer 0.x days, but who really knows...
-Patch0:		pygobject-3.40.1-no-GstInterfaces.patch
+#Patch0:		pygobject-3.40.1-no-GstInterfaces.patch
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.10.2
