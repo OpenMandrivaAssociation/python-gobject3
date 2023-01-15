@@ -89,12 +89,7 @@ rm -rf %{buildroot}%{_datadir}/gtk-doc
 %{python_sitelib}/gi/overrides/Gtk.*
 %{python_sitelib}/gi/overrides/keysyms.*
 %{python_sitelib}/gi/overrides/Pango.*
-#{python_sitelib}/gi/overrides/__pycache__/Gdk*
-#{python_sitelib}/gi/overrides/__pycache__/Gtk.*
-#{python_sitelib}/gi/overrides/__pycache__/keysyms.*
-#{python_sitelib}/gi/overrides/__pycache__/Pango.*
-#{python_sitelib}/pygtkcompat/
-#{python_sitearch}/gi/__pycache__/pygtkcompat.*
+%{python_sitelib}/pygtkcompat/
 
 %files -n python-gi
 %{python_sitelib}/gi/
