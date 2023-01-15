@@ -8,9 +8,9 @@
 %define libname %mklibname pyglib-gi %{api} %{major}
 %define libname2 %mklibname py2glib-gi %{api} %{major}
 
-%global __provides_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
-%global __requires_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
-%global __requires_exclude typelib\\(%%namespaces
+#global __provides_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
+#global __requires_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
+#global __requires_exclude typelib\\(%%namespaces
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
