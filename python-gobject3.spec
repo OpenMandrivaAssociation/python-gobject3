@@ -15,7 +15,7 @@
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.42.2
-Release:	3
+Release:	4
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -73,12 +73,12 @@ header, pkg-config file.
 %meson_install
 
 # dsextra stuff is for windows installs so remove it
-rm -fr %{buildroot}%{py_platsitedir}/gtk-2.0
+#rm -fr %{buildroot}%{py_platsitedir}/gtk-2.0
 
 # docs are out of date and are being reworked upstream
 # so remove them
 rm -rf %{buildroot}%{_datadir}/gtk-doc
-rm -rf %{buildroot}%{_datadir}/pygobject
+#rm -rf %{buildroot}%{_datadir}/pygobject
 
 %files
 %{python_sitearch}/gi/_gi_cairo*.so
@@ -100,20 +100,7 @@ rm -rf %{buildroot}%{_datadir}/pygobject
 %{python_sitelib}/gi/
 %{python_sitearch}/gi/
 %{python_sitearch}/PyGObject-%{version}.egg-info
-%exclude %{python_sitearch}/gi/pygtkcompat.py
-%exclude %{python_sitearch}/gi/_gi_cairo*.so
-%exclude %{python_sitearch}/gi/__pycache__/pygtkcompat.*
-%exclude %{python_sitearch}/gi/_gtktemplate.py
-%exclude %{python_sitelib}/gi/overrides/Gdk.*
-%exclude %{python_sitelib}/gi/overrides/GdkPixbuf.py
-%exclude %{python_sitelib}/gi/overrides/Gtk.*
-%exclude %{python_sitelib}/gi/overrides/keysyms.*
-%exclude %{python_sitelib}/gi/overrides/Pango.*
-%exclude %{python_sitelib}/pygtkcompat/
-%exclude %{python_sitelib}/gi/overrides/__pycache__/Gdk*
-%exclude %{python_sitelib}/gi/overrides/__pycache__/Gtk.*
-%exclude %{python_sitelib}/gi/overrides/__pycache__/keysyms.*
-%exclude %{python_sitelib}/gi/overrides/__pycache__/Pango.*
+
 
 %files devel
 %{_includedir}/*
