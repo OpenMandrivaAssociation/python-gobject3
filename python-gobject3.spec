@@ -15,7 +15,7 @@
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.44.1
-Release:	1
+Release:	2
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(libffi) >= 3.0
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	meson
+BuildRequires:  gtk4
 Requires:	typelib(PangoCairo)
 Requires:	python-cairo >= 1.10.0
 %rename python-gi-cairo
