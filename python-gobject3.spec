@@ -15,7 +15,7 @@
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
 Version:	3.44.1
-Release:	1
+Release:	2
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		http://www.gnome.org
@@ -89,13 +89,32 @@ rm -rf %{buildroot}%{_datadir}/gtk-doc
 %{python_sitelib}/gi/overrides/Gtk.*
 %{python_sitelib}/gi/overrides/keysyms.*
 %{python_sitelib}/gi/overrides/Pango.*
+%{python_sitelib}/gi/overrides/__pycache__/Gdk*
+%{python_sitelib}/gi/overrides/__pycache__/Gtk.*
+%{python_sitelib}/gi/overrides/__pycache__/keysyms.*
+%{python_sitelib}/gi/overrides/__pycache__/Pango.*
 %{python_sitelib}/pygtkcompat/
+%{python_sitearch}/gi/__pycache__/pygtkcompat.*
 
 %files -n python-gi
 %{python_sitelib}/gi/
 %{python_sitearch}/gi/
 %{python_sitearch}/PyGObject-%{version}.egg-info
-
+# (tpg) do not remove these
+%exclude %{python_sitearch}/gi/pygtkcompat.py
+%exclude %{python_sitearch}/gi/_gi_cairo*.so
+%exclude %{python_sitearch}/gi/__pycache__/pygtkcompat.*
+%exclude %{python_sitearch}/gi/_gtktemplate.py
+%exclude %{python_sitelib}/gi/overrides/Gdk.*
+%exclude %{python_sitelib}/gi/overrides/GdkPixbuf.py
+%exclude %{python_sitelib}/gi/overrides/Gtk.*
+%exclude %{python_sitelib}/gi/overrides/keysyms.*
+%exclude %{python_sitelib}/gi/overrides/Pango.*
+%exclude %{python_sitelib}/pygtkcompat/
+%exclude %{python_sitelib}/gi/overrides/__pycache__/Gdk*
+%exclude %{python_sitelib}/gi/overrides/__pycache__/Gtk.*
+%exclude %{python_sitelib}/gi/overrides/__pycache__/keysyms.*
+%exclude %{python_sitelib}/gi/overrides/__pycache__/Pango.*
 
 %files devel
 %{_includedir}/*
