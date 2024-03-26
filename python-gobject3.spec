@@ -84,16 +84,16 @@ rm -rf %{buildroot}%{_datadir}/gtk-doc
 %{python_sitearch}/gi/_gi_cairo*.so
 %{python_sitearch}/gi/_gtktemplate.py
 %{python_sitearch}/gi/pygtkcompat.py
-%{python_sitelib}/gi/overrides/Gdk.*
-%{python_sitelib}/gi/overrides/GdkPixbuf.py
-%{python_sitelib}/gi/overrides/Gtk.*
-%{python_sitelib}/gi/overrides/keysyms.*
-%{python_sitelib}/gi/overrides/Pango.*
-%{python_sitelib}/gi/overrides/__pycache__/Gdk*
-%{python_sitelib}/gi/overrides/__pycache__/Gtk.*
-%{python_sitelib}/gi/overrides/__pycache__/keysyms.*
-%{python_sitelib}/gi/overrides/__pycache__/Pango.*
-%{python_sitelib}/pygtkcompat/
+#{python_sitelib}/gi/overrides/Gdk.*
+#{python_sitelib}/gi/overrides/GdkPixbuf.py
+#{python_sitelib}/gi/overrides/Gtk.*
+#{python_sitelib}/gi/overrides/keysyms.*
+#{python_sitelib}/gi/overrides/Pango.*
+#{python_sitelib}/gi/overrides/__pycache__/Gdk*
+#{python_sitelib}/gi/overrides/__pycache__/Gtk.*
+#{python_sitelib}/gi/overrides/__pycache__/keysyms.*
+#{python_sitelib}/gi/overrides/__pycache__/Pango.*
+#{python_sitelib}/pygtkcompat/
 %{python_sitearch}/gi/__pycache__/pygtkcompat.*
 
 %files -n python-gi
