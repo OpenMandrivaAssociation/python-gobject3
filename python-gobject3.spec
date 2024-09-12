@@ -90,7 +90,7 @@ rm -rf %{buildroot}%{_datadir}/gtk-doc
 %files -n python-gi
 
 %{python_sitearch}/gi/
-%{python_sitearch}/PyGObject-%{version}.egg-info
+#{python_sitearch}/PyGObject-%{version}.egg-info
 # (tpg) do not remove these
 %exclude %{python_sitearch}/gi/pygtkcompat.py
 %exclude %{python_sitearch}/gi/_gi_cairo*.so
