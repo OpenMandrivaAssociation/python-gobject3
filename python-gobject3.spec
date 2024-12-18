@@ -10,7 +10,7 @@
 
 %global __provides_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
 %global __requires_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
-%global __requires_exclude typelib\\(%%namespaces
+%global __requires_exclude ^typelib\\((Gtk|Gdk|GdkPixbuf|GdkX11|%%namespaces|Pango|cairo)\)
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
