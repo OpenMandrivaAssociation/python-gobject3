@@ -10,19 +10,17 @@
 
 %global __provides_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
 %global __requires_exclude_from ^(%{python_sitelib}|%{python_sitearch})/(pygtkcompat|gi/pygtkcompat.py|gi/_gobject/__init__.py|gi/module.py|gi/__init__.py|gi/overrides/GIMarshallingTests.py)
-%global __requires_exclude ^typelib\\((Gtk|Gdk|GdkPixbuf|GdkX11|%%namespaces|Pango|cairo)\)
+%global __requires_exclude typelib\\(%%namespaces
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.50.0
-Release:	2
+Version:	3.52.2
+Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		https://www.gnome.org
 Source0:	https://download.gnome.org/sources/pygobject/%url_ver/pygobject-%{version}.tar.xz
-# (bero) FIXME is this the right thing to do? GstInterfaces looks to me
-# like it's obsolete crap from gstreamer 0.x days, but who really knows...
-#Patch0:		pygobject-3.40.1-no-GstInterfaces.patch
+
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.10.2
@@ -32,6 +30,7 @@ BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	meson
 Requires:	typelib(PangoCairo)
 Requires:	python-cairo >= 1.10.0
+Requires: python-gi = %{EVRD} 
 %rename python-gi-cairo
 %rename python-gobject-cairo
 
@@ -45,6 +44,7 @@ Group:		Development/Python
 Provides:	python-gobject-introspection = %{EVRD}
 Conflicts:	python-gobject < 2.28.6-3
 Requires:	gobject-introspection
+Requires: %{name} = %{EVRD} 
 Provides:	%{name}-base = %{EVRD}
 %rename python3-gi
 
@@ -88,10 +88,9 @@ rm -rf %{buildroot}%{_datadir}/gtk-doc
 %{python_sitearch}/gi/__pycache__/pygtkcompat.*
 
 %files -n python-gi
-
 %{python_sitearch}/gi/
 %{python_sitearch}/PyGObject-%{version}.dist-info
-# (tpg) do not remove these
+# should be merged with main package
 %exclude %{python_sitearch}/gi/pygtkcompat.py
 %exclude %{python_sitearch}/gi/_gi_cairo*.so
 %exclude %{python_sitearch}/gi/__pycache__/pygtkcompat.*
