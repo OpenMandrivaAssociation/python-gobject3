@@ -27,6 +27,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.10.2
 BuildRequires:	pkgconfig(libffi) >= 3.0
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(py3cairo)
+BuildRequires:  python-setuptools
 BuildRequires:	meson
 Requires:	typelib(PangoCairo)
 Requires:	python-cairo >= 1.10.0
