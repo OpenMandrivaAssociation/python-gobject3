@@ -23,6 +23,8 @@ Source0:	https://download.gnome.org/sources/pygobject/%url_ver/pygobject-%{versi
 
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
+BuildRequires:  pkgconfig(girepository-2.0)
+# Replaced by girepository-2.0 but keep it for tests and for safety.
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.10.2
 BuildRequires:	pkgconfig(libffi) >= 3.0
 BuildRequires:	pkgconfig(python)
