@@ -85,8 +85,8 @@ rm -rf %{buildroot}%{_datadir}/gtk-doc
 %{python_sitearch}/gi/_gi_cairo*.so
 %{python_sitearch}/gi/_gtktemplate.py
 %{python_sitearch}/gi/pygtkcompat.py
-%{python_sitearch}/pygtkcompat/
-%{python_sitearch}/gi/__pycache__/pygtkcompat.*
+#{python_sitearch}/pygtkcompat/
+#{python_sitearch}/gi/__pycache__/pygtkcompat.*
 
 %files -n python-gi
 %{python_sitearch}/gi/
