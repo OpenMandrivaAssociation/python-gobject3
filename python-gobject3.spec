@@ -14,12 +14,12 @@
 
 Summary:	Python bindings for GObject Introspection
 Name:		python-gobject3
-Version:	3.58.0
+Version:	3.58.1
 Release:	1
 License:	LGPLv2+ and MIT
 Group:		Development/Python
 Url:		https://pygobject.gnome.org/
-Source0:	https://download.gnome.org/sources/pygobject/%url_ver/pygobject-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/pygobject/%url_ver/pygobject-%{version}.tar.gz
 
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(glib-2.0) >= 2.24.0
